@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Převodník vzdáleností (km, AU, ly, pc)</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 400px; margin: 20px auto; }
+  label, select, input { display: block; margin: 10px 0; width: 100%; }
+  input, select { padding: 8px; font-size: 16px; }
+</style>
+</head>
+<body>
+<h2>Převodník vzdáleností</h2>
+
+<label for="value">Zadej hodnotu:</label>
+<input type="number" id="value" value="1" min="0" step="any" />
+
+<label for="unitFrom">Z jednotky:</label>
+<select id="unitFrom">
+  <option value="km">Kilometr (km)</option>
+  <option value="au">Astronomická jednotka (AU)</option>
+  <option value="ly">Světelný rok (ly)</option>
+  <option value="pc">Parsek (pc)</option>
+</select>
+
+<label for="unitTo">Na jednotku:</label>
+<select id="unitTo">
+  <option value="km">Kilometr (km)</option>
+  <option value="au">Astronomická jednotka (AU)</option>
+  <option value="ly">Světelný rok (ly)</option>
+  <option value="pc">Parsek (pc)</option>
+</select>
+
+<button onclick="convert()">Převést</button>
+
+<h3>Výsledek:</h3>
+<p id="result">-</p>
+
+<script>
+  const constants = {
+    km: 1,
+    au: 149597870.7,       // 1 AU = ~149.6 milionů km
+    ly: 9.4607e12,         // 1 světelný rok = ~9.46 bilionů km
+    pc: 3.0857e13          // 1 parsek = ~30.857 bilionů km
+  };
+
+  function convert() {
+    const value = parseFloat(document.getElementById('value').value);
+    const from = document.getElementById('unitFrom').value;
+    const to = document.getElementById('unitTo').value;
+
+    if (isNaN(value) || value < 0) {
+      document.getElementById('result').textContent = 'Zadej platné kladné číslo.';
+      return;
+    }
+
+    // Převod na km
+    const valueInKm = value * constants[from];
+    // Převod na cílovou jednotku
+    const result = valueInKm / constants[to];
+
+    document.getElementById('result').textContent = `${value} ${from} = ${result.toFixed(6)} ${to}`;
+  }
+</script>
+</body>
+</html>
