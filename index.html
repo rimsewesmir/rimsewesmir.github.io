@@ -12,8 +12,9 @@
       background-color: black;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      justify-content: flex-start; /* text nahoře */
+      align-items: center; /* horizontálně na střed */
+      padding-top: 20px; /* odsazení odshora */
       z-index: 9999;
       color: white;
       user-select: none;
@@ -22,12 +23,14 @@
     #loader-text {
       font-family: monospace, sans-serif;
       font-size: 40px;
-      margin-bottom: 20px;
+      margin-bottom: 20px; /* mezera pod textem */
       text-align: center;
       text-shadow: 1px 1px 4px black;
       height: 50px; /* fixní výška, aby se nesekalo posouvání */
       white-space: nowrap;
       overflow: hidden;
+      width: 100%;
+      max-width: 600px; /* případná maximální šířka */
     }
 
     #loader img {
