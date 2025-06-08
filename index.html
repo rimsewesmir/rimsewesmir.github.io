@@ -31,9 +31,19 @@
       overflow: hidden;
       width: 100%;
       max-width: 600px; /* případná maximální šířka */
+      flex-shrink: 0;
     }
 
-    #loader img {
+    /* KONTEJNER NA LOGO, který zabere zbytek výšky */
+    #loader-logo-container {
+      flex-grow: 1; /* zabere všechnu volnou výšku */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    #loader-logo-container img {
       width: 150px;
       height: 150px;
       border-radius: 50%;
@@ -126,7 +136,9 @@
   <!-- LOADER S PULZUJÍCÍM LOGEM A TEXTEM -->
   <div id="loader">
     <div id="loader-text"></div>
-    <img src="logo.jpg" alt="Logo" />
+    <div id="loader-logo-container">
+      <img src="logo.jpg" alt="Logo" />
+    </div>
   </div>
 
   <!-- HLAVNÍ OBSAH STRÁNKY -->
