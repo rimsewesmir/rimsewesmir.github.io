@@ -7,12 +7,12 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('https://rimsewesmir.github.io/poz2.jpg'); /* Sem vlož URL obrázku */
-      background-size: cover;        /* roztáhne na celou obrazovku */
-      background-position: center;   /* vystředění obrázku */
-      background-repeat: no-repeat;  /* neopakuje obrázek */
-      height: 100vh;                 /* výška na 100% */
-      color: white;                  /* barva textu */
+      background-image: url('https://rimsewesmir.github.io/poz2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      color: white;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -21,16 +21,19 @@
     }
     h1 {
       font-size: 70px;
-      color: #add8e6;
+      color: lightyellow;
     }
-    p {
-      font-size: 25px;
-      margin: 20px;
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
     }
     a {
       color: lightgreen;
       font-size: 200px;
       text-decoration: none;
+      line-height: 1;
     }
     a:hover {
       text-decoration: none;
@@ -42,8 +45,9 @@
 </head>
 <body>
   <h1>Jejda, jsi mimo RímseWesmíR</h1>
-  <p>Vypadá to, že jsi přistál mimo RímseWesmíR.</p>
-  <a href="https://rimsewesmir.github.io">🌍</a>
-  <a href="https://youtube.com/@RímseWesmíR">▶️</a>
+  <div class="links">
+    <a href="https://rimsewesmir.github.io" title="Domovská stránka">🌍</a>
+    <a href="https://youtube.com/@RímseWesmíR" title="YouTube kanál">▶️</a>
+  </div>
 </body>
 </html>
